@@ -64,6 +64,9 @@ if not os.path.exists(model_file):
     model = RandomForestRegressor(random_state = 42)
     model.fit(housing_prepared, housing_labels)
 
+    train_r2 = model.score(housing_prepared, housing_labels)
+    print(f"Model is trained, Congrats!!! Training R^2 Score: {train_r2:.4f}")
+
     joblib.dump(model, model_file)
     joblib.dump(pipeline, pipeline_file)
     print("Model is trained , Congrats!!!")
